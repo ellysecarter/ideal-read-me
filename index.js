@@ -1,6 +1,5 @@
-const { writeFile, copyFile } = require('./utils/generate-site.js');
 const inquirer = require('inquirer');
-const generatePage = require('./src/page-template');
+// const generatePage = require('./src/page-template');
 
 // questions here
 const promptUser = () => {
@@ -32,7 +31,7 @@ const promptUser = () => {
         }
       },
 
-    //   screenshot of app here
+//     //   screenshot of app here
 
     {
         type: 'input',
@@ -56,7 +55,7 @@ const promptUser = () => {
       },
       {
         type: 'input',
-        name: 'installation',
+        name: 'install',
         message: 'How do you install this project?',
         when: ({ confirmAbout }) => confirmAbout
       },
@@ -69,14 +68,19 @@ const promptUser = () => {
       {
         type: 'confirm',
         name: 'contributors',
-        message: 'Did you have any other contributors?',
+        message: 'Did you have any contributors?',
         default: false
+        // validate: contributorInput => {
+        //     if (contributorInput = true) {
+        //         return prompt
+        //     }
+        // }
       },
       {
         type: 'list',
         name: 'license',
         message: 'Please select the license that you used for this project.',
-        default: false
+        choices: ['MIT', 'GPLv2','Apache','GPLv3', 'BSD 3-clause', 'BSD 2-clause', 'AGPLv3']
       },
     ]);
   };
@@ -84,11 +88,30 @@ const promptUser = () => {
 
   
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// // TODO: Create a function to write README file
+// function writeToFile(fileName, data) {}
 
-// TODO: Create a function to initialize app
-function init() {}
+// // TODO: Create a function to initialize app
+// function init() {}
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
+
+promptUser()
+//   .then(promptProject)
+//   .then(portfolioData => {
+//     return generatePage(portfolioData);
+//   })
+//   .then(pageHTML => {
+//     return writeFile(pageHTML);
+//   })
+//   .then(writeFileResponse => {
+//     console.log(writeFileResponse);
+//     return copyFile();
+//   })
+//   .then(copyFileResponse => {
+//     console.log(copyFileResponse);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
