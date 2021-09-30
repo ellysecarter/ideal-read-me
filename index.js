@@ -1,5 +1,5 @@
 const inquirer = require('inquirer');
-// const generatePage = require('./src/page-template');
+const generatePage = require('./src/page-template');
 
 // questions here
 const promptUser = () => {
@@ -80,7 +80,7 @@ const promptUser = () => {
         type: 'list',
         name: 'license',
         message: 'Please select the license that you used for this project.',
-        choices: ['MIT', 'GPLv2','Apache','GPLv3', 'BSD 3-clause', 'BSD 2-clause', 'AGPLv3']
+        choices: ['MIT', 'Mozilla Public License 2.0','IBM Public License Version 1.0','Eclipse Public License 1.0', 'Attribution License (BY)','Other']
       },
     ]);
   };
