@@ -1,113 +1,107 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const generateMarkdown = require('.utils/generateMarkdown');
+// const generateMarkdown = require('.utils/generateMarkdown');
 
 // questions here
-const promptUser = () => {
-    return inquirer.prompt([
-      {
+const questions = [
+    {
         type: 'input',
         name: 'title',
-        message: 'What is the title of your project? (Required)',
-        validate: titleInput => {
-          if (titleInput) {
-            return true;
-          } else {
-            console.log('Please enter a title!');
-            return false;
-          }
-        }
+        message: 'What is your project title?',
+        default: 'Project Title'
       },
       {
         type: 'input',
         name: 'description',
-        message: 'Enter a description for your project. (Required)',
-        validate: descriptionInput => {
-          if (descriptionInput) {
-            return true;
-          } else {
-            console.log('Please enter a description for this project.');
-            return false;
-          }
-        }
+        message: 'Please provide a short description of your project.',
+        default: ''
       },
-
-//     //   screenshot of app here
-
-    {
-        type: 'input',
-        name: 'link',
-        message: 'Enter the link to your deployed application here',
-        validate: linkInput => {
-          if (linkInput) {
-            return true;
-          } else {
-            console.log('If you do not have a project link, please provide the link to your repo');
-            return false;
-          }
-        }
-      },
-
-      {
-        type: 'checkbox',
-        name: 'contents',
-        message: 'Please select any sections to add to your table of contents?',
-        choices: ['Technologies Used', 'Features', 'Known Bugs', 'References', 'Contributors']
-      },
-      
       {
         type: 'input',
-        name: 'install',
+        name: 'screenshot',
+        message: 'Please enter the relative path of a screenshot of your deployed application. (Press enter to skip)',
+      },  
+      {
+        type: 'input',
+        name: 'url',
+        message: 'What is your project URL? (press enter to skip.)',
+        default: ''
+      },
+      {
+        type: 'input',
+        name: 'installation',
         message: 'How do you install this project?',
-        when: ({ confirmInstall }) => confirmInstall
+        default: ''
       },
       {
         type: 'input',
         name: 'usage',
         message: 'How do you use this project?',
-        when: ({ confirmUsage }) => confirmUsage
-      },
-      {
-        type: 'input',
-        name: 'contributors',
-        message: 'Type in the name of your contributors?',
-        when: ({ confirmContributors }) => confirmContributors
+        default: ''
       },
       {
         type: 'list',
         name: 'license',
-        message: 'Please select the license that you used for this project.',
-        choices: ['MIT', 'Mozilla Public License 2.0','IBM Public License Version 1.0','Eclipse Public License 1.0', 'Attribution License (BY)','Other']
+        message: 'Please select what license you would like to include:',
+        choices: ['MIT', 'MPL 2.0', 'IPL 1.0', 'EPL 1.0', 'ODC BY'],
+        default: '0'
       },
-    ]); 
-  }; 
+      {
+        type: 'input',
+        name: 'contributors',
+        message: 'Please list any contributors you would like to name with commas in between each. If you do not have any contributors press enter',
+        default: ''
+      },
+      {
+        type: 'input',
+        name: 'username',
+        message: 'What is your GitHub username?',
+        default: ''
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email address?',
+        default: ''
+      },
+    ]
      
 
 // write to readme file
-const writeFile = (filename, data) => {
-    return new Promise((resolve, reject) => {
-      fs.writeFile(filename + 'md', data, (err) => {
-        if (err) {
-          reject(err);
-          return;
-        } else {
-          resolve({
-            ok: true,
-            message: "Your Read Me was created successfully!",
-          });
-        }
-      });
-    });
+
+  const writeToFile = (fileName, data) => {
+    fs.writeFile(fileName, data, function(err) {
+      if(err) { 
+        console.log(err); 
+      }
+      else {
+        console.log("Your Read Me was created! Go to README.md to check it out!");
+      }
+    })
   }
     
 
 // initialize app here
-const init() {}
+const init = () => {
+    inquirer.prompt(questions)
+    .then(answers =>
+      {
+        writeToFile('README', answers);
+      })
+      .catch(error => {
+        if(error.isTtyError) {
+          // Prompt couldn't be rendered in the current environment
+          console.log(error.isTtyError);
+        } else {
+          // Something else when wrong
+          console.log(error);
+        }
+      });
+  }
 
 
 init();
 
-promptUser()
 
 
 
