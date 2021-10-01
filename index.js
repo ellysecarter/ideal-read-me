@@ -86,43 +86,12 @@ const init = () => {
     inquirer.prompt(questions)
     .then(answers =>
       {
-        writeToFile('README', answers);
+        writeToFile(fileName, answers);
       })
       .catch(error => {
-        if(error.isTtyError) {
-          // Prompt couldn't be rendered in the current environment
-          console.log(error.isTtyError);
-        } else {
-          // Something else when wrong
           console.log(error);
-        }
       });
-  }
+      }
 
 
 init();
-
-
-
-
-
-
-
-
-//   .then(promptProject)
-//   .then(portfolioData => {
-//     return generatePage(portfolioData);
-//   })
-//   .then(pageHTML => {
-//     return writeFile(pageHTML);
-//   })
-//   .then(writeFileResponse => {
-//     console.log(writeFileResponse);
-//     return copyFile();
-//   })
-//   .then(copyFileResponse => {
-//     console.log(copyFileResponse);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
