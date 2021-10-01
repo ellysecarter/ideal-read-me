@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
-const generatePage = require('./src/page-template');
+const fs = require('fs');
+const generateMarkdown = require('.utils/generateMarkdown');
 
 // questions here
 const promptUser = () => {
@@ -53,28 +54,24 @@ const promptUser = () => {
         message: 'Please select any sections to add to your table of contents?',
         choices: ['Technologies Used', 'Features', 'Known Bugs', 'References', 'Contributors']
       },
+      
       {
         type: 'input',
         name: 'install',
         message: 'How do you install this project?',
-        when: ({ confirmAbout }) => confirmAbout
+        when: ({ confirmInstall }) => confirmInstall
       },
       {
         type: 'input',
         name: 'usage',
         message: 'How do you use this project?',
-        when: ({ confirmAbout }) => confirmAbout
+        when: ({ confirmUsage }) => confirmUsage
       },
       {
-        type: 'confirm',
+        type: 'input',
         name: 'contributors',
-        message: 'Did you have any contributors?',
-        default: false
-        // validate: contributorInput => {
-        //     if (contributorInput = true) {
-        //         return prompt
-        //     }
-        // }
+        message: 'Type in the name of your contributors?',
+        when: ({ confirmContributors }) => confirmContributors
       },
       {
         type: 'list',
@@ -82,22 +79,42 @@ const promptUser = () => {
         message: 'Please select the license that you used for this project.',
         choices: ['MIT', 'Mozilla Public License 2.0','IBM Public License Version 1.0','Eclipse Public License 1.0', 'Attribution License (BY)','Other']
       },
-    ]);
-  };
-  
+    ]); 
+  }; 
+     
 
-  
+// write to readme file
+const writeFile = (filename, data) => {
+    return new Promise((resolve, reject) => {
+      fs.writeFile(filename + 'md', data, (err) => {
+        if (err) {
+          reject(err);
+          return;
+        } else {
+          resolve({
+            ok: true,
+            message: "Your Read Me was created successfully!",
+          });
+        }
+      });
+    });
+  }
+    
 
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
+// initialize app here
+const init() {}
 
-// // TODO: Create a function to initialize app
-// function init() {}
 
-// // Function call to initialize app
-// init();
+init();
 
 promptUser()
+
+
+
+
+
+
+
 //   .then(promptProject)
 //   .then(portfolioData => {
 //     return generatePage(portfolioData);
