@@ -15,6 +15,7 @@ This application generates an easy readme to save you time. Just enter in the in
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Contributors](#contributors)
 * [License](#license)
 * [Contact](#contact)
 
