@@ -1,12 +1,13 @@
 
 # ellyse
 
-# undefined
+![Badge](https://img.shields.io/badge/License-EPL 1.0-yellow.svg)
+# EPL 1.0
  
 ## Description
+stuff
 
-
-# Deployed Application []()
+# Deployed Application [eladf;d](eladf;d)
 
 ## Table of Contents
 
@@ -17,16 +18,16 @@
 * [Contact](#contact)
 
 ## Installation
-
+da
 
 ## Usage
 
 
 # Contributors
-
+fdazd
 
 # License
-undefined
+This project is licensed under EPL 1.0 .
 
 # Contact
-If you have any questions or would like to contribute to this project, please feel free to reach me at @ or email me at 
+If you have any questions or would like to contribute to this project, please feel free to reach me at @fdasd or email me at fadz

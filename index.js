@@ -33,7 +33,7 @@ const questions = [
   },
   {
     type: "list",
-    name: "licenseBadge LicenseLink",
+    name: "licenseBadge",
     message: "Please select what license you would like to include:",
     choices: ["MIT", "MPL 2.0", "IPL 1.0", "EPL 1.0", "ODC BY", "None"],
   },
