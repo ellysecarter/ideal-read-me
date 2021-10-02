@@ -2,11 +2,15 @@
 # Ideal Read Me
 
 ![Badge](https://img.shields.io/badge/License-MIT-yellow.svg)
- 
+
+![gif](/Users/ellysecarter/Desktop/projects/ideal-read-me/assets/images/readme..gif)
+
 ## Description
 This application generates an easy readme to save you time. Just enter in the information about your project and Ideal Read Me will do the rest! It's easy to install, use, and looks simple but professional! 
 
-# Deployed Application [https://github.com/ellysecarter/ideal-read-me](https://github.com/ellysecarter/ideal-read-me)
+# Deployed Application 
+[Repo](https://github.com/ellysecarter/ideal-read-me)
+[Video walk through](https://watch.screencastify.com/v/ru6VWf7xjoFqA17PikZc)
 
 ## Table of Contents
 
