@@ -40,13 +40,17 @@ const questions = [
   {
     type: "input",
     name: "contributors",
-    message:
-      "Please list any contributors you would like to name with commas in between each. If you do not have any contributors press enter",
+    message: "Please list any contributors you would like to name with commas in between each. If you do not have any contributors press enter",
+  },
+  {
+    type: "input",
+    name: "tests",
+    message: "Please list any test instructions for this project.",
   },
   {
     type: "input",
     name: "username",
-    message: "What is your GitHub username?",
+    message: "What is your GitHub username? (Please leave out the @ symbol)",
   },
   {
     type: "input",

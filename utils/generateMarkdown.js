@@ -3,7 +3,7 @@
 function renderLicenseBadge(licenseBadge) {
   
     if (licenseBadge !== "None") {
-      return "![Badge](https://img.shields.io/badge/License-"+licenseBadge+"-yellow.svg)"
+      return "![Badge](https://img.shields.io/badge/License-"+licenseBadge.replace(/\s+/g, '')+"-yellow.svg)"
     } else {
       return ""
     }
@@ -25,7 +25,6 @@ function generateMarkdown(data) {
 # ${data.title}
 
 ${renderLicenseBadge(data.licenseBadge)}
-# ${data.licenseBadge}
  
 ## Description
 ${data.description}
@@ -53,7 +52,7 @@ ${data.contributors}
 ${renderLicenseLink(data.licenseBadge)}
 
 # Contact
-If you have any questions or would like to contribute to this project, please feel free to reach me at @${data.username} or email me at ${data.email}
+If you have any questions or would like to contribute to this project, please feel free to reach me at @[${data.username}](https://github.com/${data.username}) or email me at ${data.email}
 `;
 }
 
