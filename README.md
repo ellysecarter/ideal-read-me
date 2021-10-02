@@ -8,13 +8,13 @@ This application generates an easy readme to save you time. Just enter in the in
 
 # Deployed Application 
 [Repo](https://github.com/ellysecarter/ideal-read-me)
+<br>
 [Video walk through](https://watch.screencastify.com/v/ru6VWf7xjoFqA17PikZc)
 
 ## Table of Contents
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Contributors](#contributors)
 * [License](#license)
 * [Contact](#contact)
 
