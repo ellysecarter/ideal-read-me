@@ -40,7 +40,8 @@ const questions = [
   {
     type: "input",
     name: "contributors",
-    message: "Please list any contributors you would like to name with commas in between each. If you do not have any contributors press enter",
+    message:
+      "Please list any contributors you would like to name with commas in between each. If you do not have any contributors press enter",
   },
   {
     type: "input",
@@ -73,8 +74,7 @@ const writeToFile = (fileName, data) => {
 
 // initialize app here
 const init = () => {
-  inquirer
-    .prompt(questions)
+  inquirer.prompt(questions)
     .then((answers) => {
       console.log(answers);
       writeToFile("README.md", answers);
@@ -85,4 +85,3 @@ const init = () => {
 };
 
 init();
-
